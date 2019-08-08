@@ -29,8 +29,10 @@ Route::get('/', function () { return redirect('/home'); });
 | 2) User ログイン後
 |--------------------------------------------------------------------------
 */
-Route::group(['middleware' => 'auth:user'], function() {
-    Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('verified')->group(function() {
+  Route::group(['middleware' => 'auth:user'], function() {
+    Route::get('/home', 'HomeController@index')->name('home');  
+  });
 });
 
 /*
