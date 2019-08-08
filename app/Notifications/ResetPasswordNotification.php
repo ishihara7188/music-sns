@@ -16,9 +16,9 @@ class ResetPasswordNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -41,9 +41,11 @@ class ResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->from('admin@example.com', config('app.name'))
+            ->subject('パスワード再発行')
+            ->line('パスワード再発行リクエストがありましたので、メッセージ送信しました。')
+            ->action('パスワード再設定', url(config('app.url').route('password.reset', $this->token, false)))
+            ->line('もし心当たりがない場合は、本メッセージは破棄してください。');
     }
 
     /**
