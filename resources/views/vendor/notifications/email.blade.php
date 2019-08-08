@@ -6,7 +6,7 @@
 @if ($level === 'error')
 # @lang('Whoops!')
 @else
-# こんにちは
+# 本登録のご案内
 @endif
 @endif
 
@@ -29,7 +29,8 @@
     }
 ?>
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])
-{{ $actionText }}
+<!-- {{ $actionText }} -->
+本登録を完了する
 @endcomponent
 @endisset
 

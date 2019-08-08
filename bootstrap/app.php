@@ -38,9 +38,9 @@ $app = new Illuminate\Foundation\Application(
 //         $app->loadEnvironmentFrom('.env');
 //         break;
 // }
-// if (isset($_SERVER['APP_ENV'])) {
-//     $app->environmentFile = ".env.".$_SERVER['APP_ENV'];
-// }
+if (isset($_SERVER['APP_ENV'])) {
+    $app->environmentFile = ".env.".$_SERVER['APP_ENV'];
+}
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
