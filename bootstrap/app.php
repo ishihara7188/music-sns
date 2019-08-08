@@ -15,6 +15,10 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+// $app = new Illuminate\Foundation\Application(
+//     realpath(__DIR__.'/../')
+// );
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +26,21 @@ $app = new Illuminate\Foundation\Application(
 |--------------------------------------------------------------------------
 */
 
-switch ($_SERVER['SERVER_NAME'] ?? 'localhost') {
-    // case 'development.co.jp':
-    case 'http://127.0.0.1:10080':
-        $app->loadEnvironmentFrom('.env');
-        break;
-    case 'staging.co.jp':
-        $app->loadEnvironmentFrom('.env.stg');
-        break;
-    case 'production.co.jp':
-        $app->loadEnvironmentFrom('.env.prod');
-        break;
-}
-
+// switch ($_SERVER['SERVER_NAME'] ?? 'localhost') {
+//     case 'staging.co.jp':
+//         $app->loadEnvironmentFrom('.env.stg');
+//         break;
+//     case 'production.co.jp':
+//         $app->loadEnvironmentFrom('.env.prod');
+//         break;
+//     // case 'development.co.jp':
+//     default:
+//         $app->loadEnvironmentFrom('.env');
+//         break;
+// }
+// if (isset($_SERVER['APP_ENV'])) {
+//     $app->environmentFile = ".env.".$_SERVER['APP_ENV'];
+// }
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
