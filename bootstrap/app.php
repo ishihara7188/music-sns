@@ -23,8 +23,9 @@ $app = new Illuminate\Foundation\Application(
 */
 
 switch ($_SERVER['SERVER_NAME'] ?? 'localhost') {
-    case 'development.co.jp':
-        $app->loadEnvironmentFrom('.env.dev');
+    // case 'development.co.jp':
+    case 'http://127.0.0.1:10080':
+        $app->loadEnvironmentFrom('.env');
         break;
     case 'staging.co.jp':
         $app->loadEnvironmentFrom('.env.stg');
